@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  color: #333;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+li:hover {
+  background-color: #f1f1f1;
+}
+li:last-child {
+  margin-bottom: 0;
+}
+.data-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.data-description {
+  font-size: 14px;
+  color: #666;
+}
+.sub-data {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  display: none;
+}
+.sub-data-title {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 3px;
+}
+.sub-data-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
+}
+.sub-data-info-label {
+  font-size: 12px;
+  color: green;
+}
+.sub-data-info-head {
+    font-size: 14px;
+    color: red;
+}
+.apply-button {
+  bottom: 20px; /* 距离底部20px */
+  right: 20px; /* 距离右侧20px */
+  padding: 10px 20px; /* 按钮内边距 */
+  background-color: #4CAF50; /* 按钮背景颜色 */
+  color: white; /* 按钮文字颜色 */
+  border: none;
+  border-radius: 5px; /* 按钮边框圆角 */
+  cursor: pointer; /* 鼠标悬停时显示指针 */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.apply-button:hover {
+  background-color: #45a049;
+}
+.toggle-button {
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+.toggle-button.closed {
+  transform: rotate(-90deg); /* Chevron pointing down */
+}
+.sub-data.open {
+    display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>{{title}}岗位(共{{p_n}}条招聘信息)</h1>
+  <ul>
+    {% for id, company in companys %}
+      <li>
+        <div class="data-title">{{company.name}}
+        <span class="toggle-button closed" data-target="sub-data-{{ id }}"><</span>
+        </div>
+        <div class="data-description">有{{company.arr | length}}条招聘信息</div>
+      {% for arr in company.arr %}
+        <div class="sub-data sub-data-{{ id }}">
+            <div class="sub-data-title">{{arr.jobTitle}}</div>
+            <div class="sub-data-info sub-data-info-label">{{arr.position}} {{arr.education}} {{arr.batch}}</div>
+            <div class="sub-data-info"><span class="sub-data-info-head">涉及专业</span>: {{arr.major}}</div>
+            <div class="sub-data-info"><span class="sub-data-info-head">起始时间</span>: {{arr.startDate}} - {{arr.deadline}}</div>
+            <div class="sub-data-info"><span class="sub-data-info-head">所在城市</span>: {{arr.location}}</div>
+            <div class="sub-data-info"><span class="sub-data-info-head">应试要求</span>: {{arr.requirements}}</div>
+            <div class="sub-data-info"><span class="sub-data-info-head">报考链接</span>:
+              <a href="{{arr.recruitmentLink}}"  target="_blank">{{arr.recruitmentLink}}</a>
+            </div>
+        </div>
+      {% endfor %}
+      </li>
+    {% endfor %}
+    <!-- 更多的数据项可以按照上面的格式添加 -->
+  </ul>
+</div>
+<script>
+  // JavaScript to toggle the sub-data visibility
+  document.querySelectorAll('.toggle-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const targetClass = button.getAttribute('data-target');
+      const subData = document.getElementsByClassName(targetClass);
+      const isClosed = button.classList.contains('closed');
+      if (isClosed) {
+        for (index = 0; index < subData.length; index++) {
+            subData[index].classList.add('open');
+        }
+        button.classList.remove('closed');
+      } else {
+        for (index = 0; index < subData.length; index++) {
+            subData[index].classList.remove('open');
+        }
+        button.classList.add('closed');
+      }
+    });
+  });
+</script>
+</body>
+</html>
