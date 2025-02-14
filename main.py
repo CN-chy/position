@@ -1,32 +1,21 @@
 from jinja2 import Environment, FileSystemLoader
 import time
 import requests
-import hashlib
+from tool import gen_sign
 from urllib.parse import unquote
 
-def gen_qs(url):
-    qs = url.split('?')[1]
-    qs = qs.split('&')
-    qs.sort(key=lambda e: e.split('=')[0])
-    return '&'.join(qs)
-
-def gen_sign(url , timestamp, salt='d5aaacbkgy988cpdtq5m97720j1t5u8m'):
-    qs = gen_qs(url)
-    data = qs + salt + str(timestamp)[:8]
-    sign = hashlib.md5(data.encode()).hexdigest()
-    return sign
 pageNum = 1
 pageSize = 10
 currentPage = 1
 posCount = 0
-location = '重庆'
+location = '成都'
 company = []
 major = '物流管理'
 # 是否搜索不限专业岗位
 switchBtnVal = 'true'
 # education=%E4%B8%8D%E9%99%90 不限学历
 education = '%E4%B8%8D%E9%99%90'
-Authorization = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1ZXIiLCJzdWIiOiJzdWJqZWN0IiwiYXVkIjoiYXVkaWVuY2UiLCJpYXQiOjE3Mzg4MzQ1NjgsIm5iZiI6MTczODgzNDU2OCwiZXhwIjoxNzcwMzcwNTY4LCJkYXRhIjpbeyJ1c2VyX2lkIjoiMTg1NDciLCJ1c2VybmFtZSI6IjE3ODIzMjYzMzA2IiwibW9iaWxlIjoiMTc4MjMyNjMzMDYiLCJjcmVhdGVfdGltZSI6IjIwMjUtMDItMDYgMTc6MzY6MDgifV19.1uF5CPnv8S07Vux3UTF6lkEGoXc0zr8fKYsGWbQz1tw'
+Authorization = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1ZXIiLCJzdWIiOiJzdWJqZWN0IiwiYXVkIjoiYXVkaWVuY2UiLCJpYXQiOjE3Mzk1Mzc5NTcsIm5iZiI6MTczOTUzNzk1NywiZXhwIjoxNzcxMDczOTU3LCJkYXRhIjpbeyJ1c2VyX2lkIjoiMTg1NDciLCJ1c2VybmFtZSI6IjE3ODIzMjYzMzA2IiwibW9iaWxlIjoiMTc4MjMyNjMzMDYiLCJjcmVhdGVfdGltZSI6IjIwMjUtMDItMTQgMjA6NTk6MTcifV19.X9Z2HSEBgtD8tbEm1512ypH50j-Y3AMXD6QWGuf5Y0c'
 
 
 p_n = 0
@@ -84,5 +73,5 @@ template = env.get_template('template.html')
 html_output = template.render(data)
 
 # 或者保存到文件
-with open('position_res' + '/' + name, 'w', encoding='utf8') as f:
+with open('docs' + '/' + name, 'w', encoding='utf8') as f:
     f.write(html_output)
