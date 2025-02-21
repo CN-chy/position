@@ -9,7 +9,7 @@ pageNum = 1
 pageSize = 10
 currentPage = 1
 posCount = 0
-location = '成都'
+location = '重庆'
 company = []
 major = '物流管理'
 # 是否搜索不限专业岗位
