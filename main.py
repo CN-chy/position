@@ -9,15 +9,14 @@ pageNum = 1
 pageSize = 10
 currentPage = 1
 posCount = 0
-location = '重庆'
+location = '成都'
 company = []
 major = '物流管理'
 # 是否搜索不限专业岗位
 switchBtnVal = 'true'
 # education=%E4%B8%8D%E9%99%90 不限学历
 education = '%E4%B8%8D%E9%99%90'
-Authorization = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1ZXIiLCJzdWIiOiJzdWJqZWN0IiwiYXVkIjoiYXVkaWVuY2UiLCJpYXQiOjE3Mzk1Mzc5NTcsIm5iZiI6MTczOTUzNzk1NywiZXhwIjoxNzcxMDczOTU3LCJkYXRhIjpbeyJ1c2VyX2lkIjoiMTg1NDciLCJ1c2VybmFtZSI6IjE3ODIzMjYzMzA2IiwibW9iaWxlIjoiMTc4MjMyNjMzMDYiLCJjcmVhdGVfdGltZSI6IjIwMjUtMDItMTQgMjA6NTk6MTcifV19.X9Z2HSEBgtD8tbEm1512ypH50j-Y3AMXD6QWGuf5Y0c'
-
+Authorization = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1ZXIiLCJzdWIiOiJzdWJqZWN0IiwiYXVkIjoiYXVkaWVuY2UiLCJpYXQiOjE3NDIzODY5NDIsIm5iZiI6MTc0MjM4Njk0MiwiZXhwIjoxNzczOTIyOTQyLCJkYXRhIjpbeyJ1c2VyX2lkIjoiMTg1NDciLCJ1c2VybmFtZSI6IjE3ODIzMjYzMzA2IiwibW9iaWxlIjoiMTc4MjMyNjMzMDYiLCJjcmVhdGVfdGltZSI6IjIwMjUtMDMtMTkgMjA6MjI6MjIifV19.ZhKqvd9gA4NiKWyzzLA7Z6ivWh09ZkkiF_9a5OfhjYQ'
 
 p_n = 0
 while True:

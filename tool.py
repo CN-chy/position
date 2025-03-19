@@ -49,7 +49,7 @@ def get_token(phone, smscode):
         'password': smscode,
         'login_type': '0',
         'agid': '',
-        'device_id': '17388395118776850392',
+        'device_id': '1739542913625589050',
         'qr_code': ''
     }
     qs = '?'
@@ -61,6 +61,7 @@ def get_token(phone, smscode):
     qs = qs[:-1]
     headers = {
         'Host': 'qzb.cntjhr.com',
+        'DeviceId': '1739542913625589050',
         'Connection': 'keep-alive',
         'timestamp': str(timestamp),
         'xweb_xhr': '1',
@@ -73,7 +74,7 @@ def get_token(phone, smscode):
         'Sec-Fetch-Site': 'cross-site',
         'Sec-Fetch-Mode': 'cors',
         'Sec-Fetch-Dest': 'empty',
-        'Referer': 'https://servicewechat.com/wx8df0c890844bdc43/42/page-frame.html',
+        'Referer': 'https://servicewechat.com/wx8df0c890844bdc43/43/page-frame.html',
         'Accept-Encoding': 'gzip, deflate, br',
         'Accept-Language': 'zh-CN,zh;q=0.9'
     }
@@ -85,7 +86,7 @@ def get_token(phone, smscode):
     print(data)
     return data['token']
 phone = '17823263306'
-# if send_sms(phone):
-#     smscode = str(input('验证码：'))
-#     print(smscode)
-#     print(get_token(smscode, phone))
+if send_sms(phone):
+    smscode = str(input('验证码：'))
+    print(smscode)
+    print(get_token(smscode, phone))
