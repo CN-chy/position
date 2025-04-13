@@ -85,8 +85,8 @@ def get_token(phone, smscode):
     data = res.json()['data']
     print(data)
     return data['token']
-phone = '17823263306'
-if send_sms(phone):
-    smscode = str(input('验证码：'))
-    print(smscode)
-    print(get_token(smscode, phone))
+# phone = '17823263306'
+# if send_sms(phone):
+#     smscode = str(input('验证码：'))
+#     print(smscode)
+#     print(get_token(smscode, phone))
