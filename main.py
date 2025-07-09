@@ -19,6 +19,7 @@ education = '%E4%B8%8D%E9%99%90'
 Authorization = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1ZXIiLCJzdWIiOiJzdWJqZWN0IiwiYXVkIjoiYXVkaWVuY2UiLCJpYXQiOjE3NDQ1MzM1NjEsIm5iZiI6MTc0NDUzMzU2MSwiZXhwIjoxNzc2MDY5NTYxLCJkYXRhIjpbeyJ1c2VyX2lkIjoiMTg1NDciLCJ1c2VybmFtZSI6IjE3ODIzMjYzMzA2IiwibW9iaWxlIjoiMTc4MjMyNjMzMDYiLCJkZXB0X2lkIjpudWxsLCJjcmVhdGVfdGltZSI6IjIwMjUtMDQtMTMgMTY6Mzk6MjEifV19.QjjomF-uy9Tm2wbI_39U34pYXNUwGFjncRG8KVR43po'
 
 p_n = 0
+
 while True:
     url = f'https://qzb.cntjhr.com/newapi/api/news/position/list?pageNum={pageNum}&pageSize={pageSize}&currentPage={currentPage}&posCount={posCount}&major={major}&education={education}&switchBtnVal={switchBtnVal}&time_box=%E8%BF%9B%E8%A1%8C%E4%B8%AD&location={location}&nw=&gc=&xxlx=&position=&name=&ischeckLogin=1'
     timestamp = int(time.time())
